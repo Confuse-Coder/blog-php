@@ -18,6 +18,8 @@ $posts = mysqli_query($connection, $query);
                 ?>
             </p>
         </div>
+
+        <!-- show if edit post was successful -->
     <?php elseif (isset($_SESSION['edit-post-success'])) : ?>
         <div class="alert__message success container">
             <p>
@@ -26,11 +28,23 @@ $posts = mysqli_query($connection, $query);
                 ?>
             </p>
         </div>
+
+        <!-- show if edit post was NOT successful -->
     <?php elseif (isset($_SESSION['edit-post'])) : ?>
         <div class="alert__message error container">
             <p>
                 <?= $_SESSION['edit-post'];
                 unset($_SESSION['edit-post']);
+                ?>
+            </p>
+        </div>
+
+        <!-- show if delete post was successful -->
+    <?php elseif (isset($_SESSION['delete-post-success'])) : ?>
+        <div class="alert__message success container">
+            <p>
+                <?= $_SESSION['delete-post-success'];
+                unset($_SESSION['delete-post-success']);
                 ?>
             </p>
         </div>
